@@ -32,7 +32,8 @@ Principle: The basic principle is to measure the resistance of the soil between 
   *Fritzing diagram
 5. Include the library: <DHT_U.h> , for DHT22 sensor.
 6. Sending Soil Data to MQTT, [Workshop Learning process/6_Soil Data to MQTT]
-Conculsion:
+
+Phase 2 Conculsion:
 libraries: 
 <ESP8266WiFi.h> for WiFi
 <ezTime.h> for time capture on Arduino
