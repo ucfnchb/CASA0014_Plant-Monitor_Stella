@@ -14,8 +14,7 @@ A repo for the plant monitor project, developed at UCL, CASA.
 *Upload Speed 115200 baud
 *Matching COM port
 7. Blink Test, LED blinking indicates that connection successful. [Workshop Learning process/1_blink test]
-8. Connecting via WiFi, connecting to a webserver, include <ESP8266WiFi> library.
-(PlantMonitor uses several libraries. These libraries are <ESP8266WiFi.h> for WiFi, <ezTime.h> for time capture on Arduino, <PubSubClient.h> for MQTT access, <DHT.h> for the DHT sensor, and a "arduino_secrets.h" script to hide private WiFi details.)[Workshop Learning process/2_wifi connection]
+8. Connecting via WiFi, connecting to a webserver, include <ESP8266WiFi> library.[Workshop Learning process/2_wifi connection]
 9 Buit-in clock as most Arduino doesn’t have a built-in clock so each time it starts, we need to tell it the time. <ezTime.h> for time capture on Arduino. [Workshop Learning process/3_built-in Time]
  
 2nd phase: getting familiar with MQTT and data flowing across the web:
@@ -33,3 +32,10 @@ Principle: The basic principle is to measure the resistance of the soil between 
   *Fritzing diagram
 5. Include the library: <DHT_U.h> , for DHT22 sensor.
 6. Sending Soil Data to MQTT, [Workshop Learning process/6_Soil Data to MQTT]
+Conculsion:
+libraries: 
+<ESP8266WiFi.h> for WiFi
+<ezTime.h> for time capture on Arduino
+<PubSubClient.h> for MQTT access
+<DHT.h> for the DHT22 sensor
+[Workshop Learning process/6_Soil Data to MQTT] and [Workshop Learning process/5_MQTT_sendTopic] include "arduino_secrets.h" script to hide private information
