@@ -85,9 +85,11 @@ A photoresistor + a buzzer
 - The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
   
 - Code:
-  photosensitive_resistor.ino receives lighting signals and trigger the buzzer on the Arduino Uno.
- ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/e7e115ed-8f56-4dba-85fb-f43abb5e10b2)
+  photosensitive_resistor.ino receives lighting signals and trigger the buzzer on the Arduino Uno
+
 ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/722d10fc-35ca-4e7b-a9c5-b1ee97102ed1)
+![e8462ef8a77752a7576205f357b1f24](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/4e88c18a-6c9e-4c0d-8ffd-8c53d4a21ac2)
+
 
 
  
