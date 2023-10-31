@@ -1,16 +1,15 @@
 
-
-#include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
-#include <ezTime.h>
-#include <PubSubClient.h>
-#include <DHT.h>
-#include <DHT_U.h>
-
+#include <ESP8266WiFi.h> // connect to webserver 
+#include <ESP8266WebServer.h> // connect to WiFi
+#include <ezTime.h> // time capture on Arduino
+#include <PubSubClient.h> // MQTT access
+#include <DHT.h> // DHT sensor
+#include <DHT_U.h>//  connect to DHT sensor 
+#include "arduino_secrets.h" // hide my private WiFi details
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 // Sensors - DHT22 and Nails
-uint8_t DHTPin = 12;        // on Pin 2 of the Huzzah
+uint8_t DHTPin = 12;        // on Pin 2 
 uint8_t soilPin = 0;      // ADC or A0 pin on Huzzah
 float Temperature;
 float Humidity;
@@ -20,39 +19,25 @@ int blueLED = 2;
 DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
 
 
-// Wifi and MQTT
-#include "arduino_secrets.h" 
-/*
-**** please enter your sensitive data in the Secret tab/arduino_secrets.h
-**** using format below
-
-#define SECRET_SSID "ssid name"
-#define SECRET_PASS "ssid password"
-#define SECRET_MQTTUSER "user name - eg student"
-#define SECRET_MQTTPASS "password";
- */
-
+// hidden varidables for my Wifi and MQTT
 const char* ssid     = SECRET_SSID;
 const char* password = SECRET_PASS;
 const char* mqttuser = SECRET_MQTTUSER;
 const char* mqttpass = SECRET_MQTTPASS;
+const char* mqtt_server = "mqtt.cetools.org";
 
 ESP8266WebServer server(80);
-const char* mqtt_server = "mqtt.cetools.org";
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
-
-// Date and time
-Timezone GB;
+Timezone GB; // UK Time and Date
 
 
 
 void setup() {
-  // Set up LED to be controllable via broker
-  // Initialize the BUILTIN_LED pin as an output
+  //LED light setup for a push command from MQTT for turning on and turning off
   // Turn the LED off by making the voltage HIGH
   pinMode(BUILTIN_LED, OUTPUT);     
   digitalWrite(BUILTIN_LED, HIGH);  
@@ -64,15 +49,16 @@ void setup() {
   pinMode(blueLED, OUTPUT); 
   digitalWrite(blueLED, HIGH);
 
-  // open serial connection for debug info
+  // open serial connection 
   Serial.begin(115200);
   delay(100);
 
   // start DHT sensor
+  // begin to read the DHT
   pinMode(DHTPin, INPUT);
   dht.begin();
 
-  // run initialisation functions
+  // run initialisation functions for the wifi and webserver
   startWifi();
   startWebserver();
   syncDate();
@@ -82,43 +68,50 @@ void setup() {
   client.setCallback(callback);
 
 }
+// receive the web server requests
+// and reading the sensor data
 
 void loop() {
-  // handler for receiving requests to webserver
+ 
   server.handleClient();
 
-delay(3000);//every 3 second repeating upload data
+delay(5000);
+//changed to every 5 second repeating upload data
+// receive the moisture levels and DHT data and Time
     readMoisture();
     sendMQTT();
-    Serial.println(GB.dateTime("H:i:s")); // UTC.dateTime("l, d-M-y H:i:s.v T")
-
+    Serial.println(GB.dateTime("H:i:s")); 
   
   client.loop();
 }
 
+// check the resistance between my 2 nails
 void readMoisture(){
   
-  // power the sensor
+  // power the sensor,2 nails
   digitalWrite(sensorVCC, HIGH);
   digitalWrite(blueLED, LOW);
   delay(100);
-  // read the value from the sensor:
-  Moisture = analogRead(soilPin);         
+  // read the value from the sensor, grabbing the analog data
+  Moisture = analogRead(soilPin);      
+
+  // stop to power the sensor, 2 nails   
   digitalWrite(sensorVCC, LOW);  
   digitalWrite(blueLED, HIGH);
   delay(100);
+
   Serial.print("Wet ");
-  Serial.println(Moisture);   // read the value from the nails
+  Serial.println(Moisture);   // read the value from 2 nails
 }
 
 void startWifi() {
-  // We start by connecting to a WiFi network
+  // connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password);// connect to the WiFi
 
-  // check to see if connected and wait until you are
+  // to check to see if connected to the Wifi
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -130,7 +123,7 @@ void startWifi() {
 }
 
 void syncDate() {
-  // get real date and time
+  // get UK date and time
   waitForSync();
   Serial.println("UTC: " + UTC.dateTime());
   GB.setLocation("Europe/London");
@@ -139,25 +132,29 @@ void syncDate() {
 }
 
 void sendMQTT() {
-
+// To check if the connection is vaild
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
-
-  Temperature = dht.readTemperature(); // Gets the values of the temperature
+// to send the value of temperature 
+  Temperature = dht.readTemperature(); 
+  // Gets the values of the temperature
   snprintf (msg, 50, "%.1f", Temperature);
   Serial.print("Publish message for t: ");
   Serial.println(msg);
   client.publish("student/CASA0014/plant/ucfnchb/temperature", msg);
 
+//send the value of humidity
   Humidity = dht.readHumidity(); // Gets the values of the humidity
   snprintf (msg, 50, "%.0f", Humidity);
   Serial.print("Publish message for h: ");
   Serial.println(msg);
   client.publish("student/CASA0014/plant/ucfnchb/humidity", msg);
 
-  //Moisture = analogRead(soilPin);   // moisture read by readMoisture function
+  //send the value of moisture
+  //Moisture = analogRead(soilPin);   
+  // moisture read by readMoisture function
   snprintf (msg, 50, "%.0i", Moisture);
   Serial.print("Publish message for m: ");
   Serial.println(msg);
@@ -176,10 +173,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because it is active low on the ESP-01)
+    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on 
   } else {
-    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by setting the voltage HIGH
   }
 
 }
@@ -195,7 +191,7 @@ void reconnect() {
     // Attempt to connect with clientID, username and password
     if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
       Serial.println("connected");
-      // ... and resubscribe
+      //resubscribe
       client.subscribe("student/CASA0014/plant/ucfnchb/inTopic");
     } else {
       Serial.print("failed, rc=");
@@ -215,16 +211,19 @@ void startWebserver() {
   Serial.println("HTTP server started");  
 }
 
+// to performs the calculations for the web server page
 void handle_OnConnect() {
   Temperature = dht.readTemperature(); // Gets the values of the temperature
   Humidity = dht.readHumidity(); // Gets the values of the humidity
   server.send(200, "text/html", SendHTML(Temperature, Humidity, Moisture));
 }
 
+// a 404 error web page for the server
 void handle_NotFound() {
   server.send(404, "text/plain", "Not found");
 }
 
+// creates the HTML for the web server
 String SendHTML(float Temperaturestat, float Humiditystat, int Moisturestat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
