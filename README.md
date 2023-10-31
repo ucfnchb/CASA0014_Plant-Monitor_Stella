@@ -3,6 +3,7 @@ A repo for the plant monitor project, developed at UCL, CASA.
 
 
 1st phase Setting up ESP8266 WiFi: 
+
 1.	Arduino IDE 2.2.1:  a code editor with powerful functions which is easy to use.
 2.	MQTT Explorer:  to inspect data travelling through a MQTT server. The monitor would gather plant data and send it to CASA’s Living Lab MQTT broker. MQTT is a messaging protocol for capturing IoT device data in a server (the broker).
 3.	Huzzah ESP8266: https://www.adafruit.com/product/2821
@@ -25,7 +26,6 @@ A repo for the plant monitor project, developed at UCL, CASA.
 3. Using MQTT Explorer to watch a TOPIC
   *Send a control message via MQTT create a new topic to publish
   *student/CASA0014/plant/ucfnchb/inTopic [Workshop Learning process/5_MQTT_sendTopic]
-
 4. Sensing soil + environment: 
   *DHT22 temperature/humidity sensor + pair of nails 
 Principle: The basic principle is to measure the resistance of the soil between two nails a distance apart. The more moisture there is in the soil the lower the resistance.
@@ -33,21 +33,13 @@ Principle: The basic principle is to measure the resistance of the soil between 
   *Fritzing diagram
 5. Include the library: <DHT_U.h> , for DHT22 sensor.
 6. Sending Soil Data to MQTT, [Workshop Learning process/6_Soil Data to MQTT]
-
-Phase 2 Conculsion:
-  libraries: 
-  <ESP8266WiFi.h> for WiFi
-  <ezTime.h> for time capture on Arduino
-  <PubSubClient.h> for MQTT access
-  <DHT.h> for the DHT22 sensor
-  [Workshop Learning process/6_Soil Data to MQTT] and [Workshop Learning process/5_MQTT_sendTopic] include "arduino_secrets.h" script to hide 
-  private information
-
+7. Phase 2 Conculsion: libraries using : <ESP8266WiFi.h> for WiFi connection; <ezTime.h> for time capture on Arduino;  <PubSubClient.h> for MQTT access; <DHT.h> for the DHT22 sensor [Workshop Learning process/6_Soil Data to MQTT] and [Workshop Learning process/5_MQTT_sendTopic] include "arduino_secrets.h" script to hide my private information.
+  
 
 3rd phase: Setup Raspberry Pi (Formerly known as Raspbian)
 
-1.	Setting up a RPi as a gateway as a datastore
-https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html Control the system remotely using VNC: Virtual Network Computing, SSH: Secure Shell Protocol. What is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
+1.	1.	Setting up a RPi as a gateway as a datastore
+https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html, trying to program on the Pi or use it to control electronics such as lights, motors and sensors, there's no need to connect it to a display or input devices. Control the system remotely using: VNC (Virtual Network Computing) and SSH (Secure Shell Protocol). And what is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
 
 2.	The Pi must be connected to the same local network as the Huzzah, hostname with the format stud-pi-ucxxxxx and there are three essential software components that need to be installed:
 
