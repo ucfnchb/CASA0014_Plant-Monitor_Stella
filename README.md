@@ -47,13 +47,7 @@ Phase 2 Conculsion:
 3rd phase: Setup Raspberry Pi (Formerly known as Raspbian)
 
 1.	Setting up a RPi as a gateway as a datastore
-https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html
-
-  Control the system remotely using:
-    *VNC: Virtual Network Computing
-    *SSH: Secure Shell Protocol
-
-  what is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
+https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html Control the system remotely using VNC: Virtual Network Computing, SSH: Secure Shell Protocol. What is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
 
 2.	The Pi must be connected to the same local network as the Huzzah, hostname with the format stud-pi-ucxxxxx and there are three essential software components that need to be installed:
 
