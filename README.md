@@ -44,3 +44,25 @@ libraries:
 
 Photosensitive_resistor: 
 The code executed on the Arduino Uno is referred to as the photosensitive resistor. The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
+
+
+3rd phase: 
+1.	Setting up a RPi as a gateway as a datastore
+https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html
+trying to program on the Pi or use it to control electronics such as lights, motors and sensors, there's no need to connect it to a display or input devices.
+
+Control the system remotely using:
+*VNC: Virtual Network Computing
+*SSH: Secure Shell Protocol
+*Formerly known as Raspbian
+
+hostname with the format stud-pi-ucxxxxx where ucxxxxx is your student id
+what is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
+
+2.	The Pi must be connected to the same local network as the Huzzah, and there are three essential software components that need to be installed:
+
+InfluxDB is a database management system designed specifically for the storage of time series data. It provides efficient storage and retrieval mechanisms for this type of data, allowing for high-performance operations. In my project: create a bucket entitled mqtt-data, data should be transported into the 'mqtt-data' bucket.
+
+Telegraf is a data collection agent that specializes in capturing data from MQTT (Message Queuing Telemetry Transport) sources. It is capable of efficiently gathering data from various MQTT devices and transmitting it to other systems for further processing.
+ 
+Grafana is a visualization tool that enables the creation of interactive and customizable dashboards. It is particularly useful for presenting time series data in a visually appealing and informative manner. Grafana allows users to create and configure dashboards to display data from many sources, including InfluxDB and Telegraf. In my project: Grafana should then be configured to grab data from the mqtt-data bucket, and create a data source that references the localhost IP.
