@@ -1,8 +1,8 @@
 # Plant-Monitor_Stella
-A repo for the plant monitor project, developed at UCL, CASA.
+A repo for the plant monitor project, developed at UCL CASA.
 
 
-1st phase Setting up ESP8266 WiFi: 
+#1st phase Setting up ESP8266 WiFi: 
 
 1.	Arduino IDE 2.2.1:  a code editor with powerful functions which is easy to use.
 2.	MQTT Explorer:  to inspect data travelling through a MQTT server. The monitor would gather plant data and send it to CASA’s Living Lab MQTT broker. MQTT is a messaging protocol for capturing IoT device data in a server (the broker).
