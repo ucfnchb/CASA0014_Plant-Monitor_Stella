@@ -46,20 +46,17 @@ Photosensitive_resistor:
 The code executed on the Arduino Uno is referred to as the photosensitive resistor. The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
 
 
-3rd phase: 
+3rd phase: Setup Raspberry Pi (Formerly known as Raspbian)
 1.	Setting up a RPi as a gateway as a datastore
 https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html
-trying to program on the Pi or use it to control electronics such as lights, motors and sensors, there's no need to connect it to a display or input devices.
 
 Control the system remotely using:
 *VNC: Virtual Network Computing
 *SSH: Secure Shell Protocol
-*Formerly known as Raspbian
 
-hostname with the format stud-pi-ucxxxxx where ucxxxxx is your student id
 what is "Shell"? https://missing.csail.mit.edu/2020/course-shell/
 
-2.	The Pi must be connected to the same local network as the Huzzah, and there are three essential software components that need to be installed:
+2.	The Pi must be connected to the same local network as the Huzzah, hostname with the format stud-pi-ucxxxxx and there are three essential software components that need to be installed:
 
 InfluxDB is a database management system designed specifically for the storage of time series data. It provides efficient storage and retrieval mechanisms for this type of data, allowing for high-performance operations. In my project: create a bucket entitled mqtt-data, data should be transported into the 'mqtt-data' bucket.
 
