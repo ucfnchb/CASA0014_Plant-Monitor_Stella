@@ -16,6 +16,7 @@ A repo for the plant monitor project, developed at UCL, CASA.
 7. Blink Test, LED blinking indicates that connection successful. [Workshop Learning process/1_blink test]
 8. Connecting via WiFi, connecting to a webserver, include <ESP8266WiFi> library.[Workshop Learning process/2_wifi connection]
 9 Buit-in clock as most Arduino doesn’t have a built-in clock so each time it starts, we need to tell it the time. <ezTime.h> for time capture on Arduino. [Workshop Learning process/3_built-in Time]
+
  
 2nd phase: getting familiar with MQTT and data flowing across the web:
 
@@ -43,12 +44,6 @@ Phase 2 Conculsion:
   private information
 
 
-Photosensitive_resistor: 
-  The code executed on the Arduino Uno is referred to as the photosensitive resistor. The objective of this script is to receive sequential 
-  signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will 
-  be activated to alert the intruder when the object comes within this range.
-
-
 3rd phase: Setup Raspberry Pi (Formerly known as Raspbian)
 
 1.	Setting up a RPi as a gateway as a datastore
@@ -73,3 +68,9 @@ https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.htm
   presenting time series data in a visually appealing and informative manner. Grafana allows users to create and configure dashboards to 
   display data from many sources, including InfluxDB and Telegraf. In my project: Grafana should then be configured to grab data from the 
   mqtt-data bucket, and create a data source that references the localhost IP.
+
+
+Photosensitive_resistor: 
+  The code executed on the Arduino Uno is referred to as the photosensitive resistor. The objective of this script is to receive sequential 
+  signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will 
+  be activated to alert the intruder when the object comes within this range.
