@@ -71,19 +71,21 @@ https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.htm
 ## Plant Monitor Setup and Deployment
 
 Sensing soil + environment: 
-DHT22 temperature/humidity sensor + pair of nails 
+- DHT22 temperature/humidity sensor + pair of nails 
 Principle: The basic principle is to measure the resistance of the soil between two nails a distance apart. The more moisture there is in the soil the lower the resistance.
 
-Code: 
-6_Soil_Data_to_MQTT.ino: manages the Huzzah, its WiFi, data capture, and serial communication with the Arduino Uno.
+- Code:
+  6_Soil_Data_to_MQTT.ino: manages the Huzzah, its WiFi, data capture, and serial communication with the Arduino Uno.
 ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/8da05d6b-5ed1-431e-a976-a5198eea0fdc)
 
  
 Sensing light intensity and trigger the buzzer 
+
 A photoresistor + a buzzer
-The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
-Code: 
-photosensitive_resistor.ino receives lighting signals and trigger the buzzer on the Arduino Uno.
+- The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
+  
+- Code:
+  photosensitive_resistor.ino receives lighting signals and trigger the buzzer on the Arduino Uno.
  ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/e7e115ed-8f56-4dba-85fb-f43abb5e10b2)
 ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/722d10fc-35ca-4e7b-a9c5-b1ee97102ed1)
 
