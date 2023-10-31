@@ -40,3 +40,7 @@ libraries:
 <PubSubClient.h> for MQTT access
 <DHT.h> for the DHT22 sensor
 [Workshop Learning process/6_Soil Data to MQTT] and [Workshop Learning process/5_MQTT_sendTopic] include "arduino_secrets.h" script to hide private information
+
+
+Photosensitive_resistor: 
+The code executed on the Arduino Uno is referred to as the photosensitive resistor. The objective of this script is to receive sequential signals, detect the light intensity, and ring the buzzer. The condition distance was established as 100 cm, indicating that the buzzer will be activated to alert the intruder when the object comes within this range.
