@@ -76,6 +76,8 @@ Principle: The basic principle is to measure the resistance of the soil between 
 
 - Code:
   6_Soil_Data_to_MQTT.ino: manages the Huzzah, its WiFi, data capture, and serial communication with the Arduino Uno.
+
+
 ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/8da05d6b-5ed1-431e-a976-a5198eea0fdc)
 
  
@@ -86,6 +88,8 @@ A photoresistor + a buzzer
   
 - Code:
   photosensitive_resistor.ino receives lighting signals and trigger the buzzer on the Arduino Uno
+  ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/de3fe122-398b-4a7f-89e3-b32c940ec0a9)
+
 
 ![e8462ef8a77752a7576205f357b1f24](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/4e88c18a-6c9e-4c0d-8ffd-8c53d4a21ac2)
 
