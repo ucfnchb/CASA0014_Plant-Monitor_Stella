@@ -1,6 +1,6 @@
 
 ## Plant Monitor:
-A repo for the plant monitor project, developed at UCL CASA. This repository documents the process and resources used to develop a fully functioning plant monitor system. The purpose of this project is to create a plant monitor system that helps individuals keep track of the health and well-being of their plants. By monitoring temperature, humidity, moisture levels. In addition, the project features an alert system that uses a photosensitive resistor to detect changes in light intensity, thereby alerting the owner when their plant is surrounded by flies or pets, which may cause harm or damage. The system aims to provide timely alerts and ensure optimal conditions for plant growth. 
+A repo for the plant monitor project, is finished by Stella and developed at UCL CASA. This repository documents the process and resources used to develop a fully functioning plant monitor system. The purpose of this project is to create a plant monitor system that helps individuals keep track of the health and well-being of their plants. By monitoring temperature, humidity, moisture levels. In addition, the project features an alert system that uses a photosensitive resistor to detect changes in light intensity, thereby alerting the owner when their plant is surrounded by flies or pets, which may cause harm or damage. The system aims to provide timely alerts and ensure optimal conditions for plant growth. 
 
 
 ## Development: 
