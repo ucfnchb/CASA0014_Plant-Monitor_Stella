@@ -91,13 +91,16 @@ A photoresistor + a buzzer
 
 ## Challenges and further improvement
 
-- Original Idea
+- Original Idea:
+
 The initial concept of this project revolved around the addition of an LCD display to visually represent plant conditions, including temperature, humidity, and soil moisture. Furthermore, it was intended to trigger a "Help" message on the display when external objects, such as flies or pets, approached the plant. While this concept serves the purpose of on-site monitoring, it lacks the ability to provide remote access and control.
 ![62c8ce09e10668a890234e3a72a469f](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/c99170f8-ca3e-4abc-af4d-6cff77eb1301)
 
 - Rationale for Change
- Upon careful consideration, it became apparent that the project could be improved by enabling communication between the Huzzah 8266 and Arduino. This enhancement allows the exchange of data and adds an advanced feature, which is the ability to transmit it to a user's mobile device via messaging platforms like WhatsApp and Telegram. Plant owners will be able to remotely manage and monitor their plants while they are away from home.
+  
+Upon careful consideration, it became apparent that the project could be improved by enabling communication between the Huzzah 8266 and Arduino. This enhancement allows the exchange of data and adds an advanced feature, which is the ability to transmit it to a user's mobile device via messaging platforms like WhatsApp and Telegram. Plant owners will be able to remotely manage and monitor their plants while they are away from home.
 
 - Future Developments
+  
 To realize this innovative feature, substantial research and development efforts are required. The proposed changes aim to provide an advanced and efficient plant monitoring system. These enhancements promise to provide plant owners with the ability to monitor and manage their plants with ease, regardless of their physical location.
 
