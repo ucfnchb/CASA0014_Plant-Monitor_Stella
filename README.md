@@ -44,7 +44,9 @@ Components Used:
 1.	[Workshop Learning process_4_MQTT], Install and use the PubSubClient library.
 2.	[Workshop Learning process/5_MQTT_sendTopic], Using MQTT Explorer to watch a TOPIC, and send a control message via MQTT create a new topic to publish.
  ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/93df8c56-a4f4-4e56-a694-fff7bb44aee4)
-![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/941190d2-f595-4c45-8b4a-0d782c327327)
+ ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/941190d2-f595-4c45-8b4a-0d782c327327)
+ ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/ece2828a-c19f-4cf4-beb8-669ae2c6beb3)
+
 
  
 # Phase 3: Setting up Raspberry Pi
