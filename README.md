@@ -58,7 +58,9 @@ https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.htm
 
 
 - Telegraf (capturing MQTT data) a data collection agent that specializes in capturing data from MQTT (Message Queuing Telemetry Transport) sources. It is capable of efficiently gathering data from various MQTT devices and transmitting it to other systems for further processing.
- ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/823e0c79-d2d3-475e-a133-4290a5d69629)
+
+ ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/823e0c79-d2d3-475e-a133-4290a5d69629)  
+
 
 
 - Grafana (presenting the data on a dashboard) a visualization tool that enables the creation of interactive and customizable dashboards. It is particularly useful for presenting time series data in a visually appealing and informative manner. Grafana allows users to create and configure dashboards to display data from many sources, including InfluxDB and Telegraf. In my project: Grafana should then be configured to grab data from the mqtt-data bucket,  and create a data source that references my localhost IP.
