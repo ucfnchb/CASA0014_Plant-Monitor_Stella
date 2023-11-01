@@ -66,7 +66,7 @@ https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.htm
 - Grafana (presenting the data on a dashboard) a visualization tool that enables the creation of interactive and customizable dashboards. It is particularly useful for presenting time series data in a visually appealing and informative manner. Grafana allows users to create and configure dashboards to display data from many sources, including InfluxDB and Telegraf. In my project: Grafana should then be configured to grab data from the mqtt-data bucket,  and create a data source that references my localhost IP.
  ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/1a79b86a-79ce-43ea-a162-203270540c50)
 
-![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/1b64a760-1a12-4367-b0ea-77f9ea529c98)
+ ![image](https://github.com/ucfnchb/Plant-Monitor_Stella/assets/146333771/1b64a760-1a12-4367-b0ea-77f9ea529c98)
 
  
 
